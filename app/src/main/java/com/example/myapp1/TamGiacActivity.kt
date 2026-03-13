@@ -3,6 +3,7 @@ package com.example.myapp1
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import kotlin.math.sqrt
 
 class TamGiacActivity : AppCompatActivity() {
@@ -19,17 +20,37 @@ class TamGiacActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
 
-            val aa = a.text.toString().toDouble()
-            val bb = b.text.toString().toDouble()
-            val cc = c.text.toString().toDouble()
+            val sa = a.text.toString()
+            val sb = b.text.toString()
+            val sc = c.text.toString()
 
-            val p = aa + bb + cc
+            if(sa.isEmpty() || sb.isEmpty() || sc.isEmpty()){
+                Toast.makeText(this,"Nhập đủ dữ liệu",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            val s = p/2
+            try{
 
-            val dienTich = sqrt(s*(s-aa)*(s-bb)*(s-cc))
+                val aa = sa.toDouble()
+                val bb = sb.toDouble()
+                val cc = sc.toDouble()
 
-            kq.text = "Chu vi = $p\nDiện tích = $dienTich"
+                if(aa + bb <= cc || aa + cc <= bb || bb + cc <= aa){
+                    Toast.makeText(this,"Không phải tam giác",Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                val p = aa + bb + cc
+                val s = p/2
+                val dt = kotlin.math.sqrt(s*(s-aa)*(s-bb)*(s-cc))
+
+                val i = Intent(this, KetQuaActivity::class.java)
+                i.putExtra("ketqua","Chu vi = $p\nDiện tích = $dt")
+                startActivity(i)
+
+            }catch (e:Exception){
+                Toast.makeText(this,"Dữ liệu sai",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".GiaiPTActivity"/>
         <activity android:name=".TamGiacActivity"/>
+        <activity android:name=".KetQuaActivity"/>
     </application>
 
 </manifest>

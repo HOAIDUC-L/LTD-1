@@ -5,7 +5,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 class MainActivity : AppCompatActivity() {
-
+//làm threadment, sùng supportfrout manerger, frame layout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,13 +21,20 @@ class MainActivity : AppCompatActivity() {
             val b = so2.text.toString()
 
             if (a.isEmpty() || b.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đủ dữ liệu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Vui lòng nhập đủ dữ liệu",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val tong = a.toInt() + b.toInt()
+            try{
 
-            kq.text = "Kết quả: $tong"
+                val tong = a.toInt() + b.toInt()
+                val i = Intent(this, KetQuaActivity::class.java)
+                i.putExtra("ketqua","Tổng = $tong")
+                startActivity(i)
+
+            }catch (e:Exception){
+                Toast.makeText(this,"Dữ liệu không hợp lệ",Toast.LENGTH_SHORT).show()
+            }
         }
 
         val btnPT = findViewById<Button>(R.id.btnPT)
