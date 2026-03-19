@@ -23,6 +23,8 @@
         <activity android:name=".GiaiPTActivity"/>
         <activity android:name=".TamGiacActivity"/>
         <activity android:name=".KetQuaActivity"/>
+        <activity android:name=".SvActivity"/>
+        <activity android:name=".ResultActivity"/>
     </application>
 
 </manifest>

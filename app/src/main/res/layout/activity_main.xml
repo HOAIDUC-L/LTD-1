@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:gravity="center"
-                android:text="Kết quả"
+                android:text=""
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -99,7 +99,13 @@
             android:id="@+id/btnTamGiac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tính tam giác"
+            android:text="Tính chu vi diện tích tam giác"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/btnSinhVien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhập thông tin sinh viên"
             android:layout_marginTop="10dp"/>
 
     </LinearLayout>

@@ -49,5 +49,11 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, TamGiacActivity::class.java)
             startActivity(i)
         }
+        val btnSV = findViewById<Button>(R.id.btnSinhVien)
+
+        btnSV.setOnClickListener {
+        val i = Intent(this, SvActivity::class.java)
+        startActivity(i)
+        }
     }
 }
